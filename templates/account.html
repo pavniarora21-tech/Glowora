@@ -1,0 +1,3 @@
+{% extends 'base.html' %}{% block title %}Account{% endblock %}{% block content %}
+<div class="panel narrow"><h1>Hello, {{ customer['full_name'] }}</h1><p>{{ customer['email'] }}<br>{{ customer['phone'] }}</p>
+<a class="btn" href="{{ url_for('my_orders') }}">My orders</a> <a class="btn ghost" href="{{ url_for('customer_logout') }}">Logout</a></div>{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'admin_base.html' %}{% block title %}Dashboard{% endblock %}{% block admin %}
+<div class="stats"><div class="stat"><b>{{ total_products }}</b>Products</div><div class="stat"><b>{{ total_orders }}</b>Orders</div><div class="stat"><b>₹{{ '%.0f'|format(total_sales or 0) }}</b>Sales</div></div>
+<div class="panel"><h3>Recent orders</h3><table><tr><th>#</th><th>Customer</th><th>Total</th><th>Status</th></tr>
+{% for o in recent_orders %}<tr><td>{{ o['id'] }}</td><td>{{ o['full_name'] }}</td><td>₹{{ '%.0f'|format(o['total']) }}</td><td>{{ o['status'] }}</td></tr>{% endfor %}</table></div>
+<div class="panel"><h3>Products</h3><table><tr><th></th><th>Name</th><th>Category</th><th>Price</th><th></th></tr>
+{% for p in products %}<tr><td><img class="thumb" src="{{ p['image'] }}" alt=""></td><td>{{ p['name'] }}</td><td>{{ p['category'] }}</td><td>₹{{ '%.0f'|format(p['price']) }}</td>
+<td class="row"><a class="btn sm ghost" href="{{ url_for('admin_edit_product', product_id=p['id']) }}">Edit</a>
+<form method="post" action="{{ url_for('admin_delete_product', product_id=p['id']) }}" onsubmit="return confirm('Delete this product?')"><button class="btn sm">Delete</button></form></td></tr>{% endfor %}</table></div>{% endblock %}

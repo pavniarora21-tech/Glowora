@@ -1,0 +1,7 @@
+{% extends 'base.html' %}{% block title %}Checkout{% endblock %}{% block content %}
+<h1 style="margin-top:36px">Checkout</h1><div class="two"><form class="panel" method="post" style="margin:0">
+<label>Full name</label><input name="full_name" required><label>Email</label><input type="email" name="email" required>
+<label>Phone (10 digits)</label><input name="phone" pattern="[0-9]{10}" required><label>Address</label><textarea name="address" rows="2" required></textarea>
+<label>City</label><input name="city" required><label>PIN code (6 digits)</label><input name="pincode" pattern="[0-9]{6}" required>
+<label>Payment</label><select name="payment_method"><option>Cash on Delivery</option></select><br><br><button class="btn">Place order</button></form>
+<div class="panel" style="margin:0"><h3>Order summary</h3>{% for i in cart_items %}<div class="row" style="justify-content:space-between"><span>{{ i.product['name'] }} × {{ i.quantity }}</span><span>₹{{ '%.0f'|format(i.subtotal) }}</span></div>{% endfor %}<hr><p class="total">Total: ₹{{ '%.0f'|format(total) }}</p></div></div>{% endblock %}

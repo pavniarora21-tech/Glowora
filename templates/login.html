@@ -1,0 +1,3 @@
+{% extends 'base.html' %}{% block title %}Login{% endblock %}{% block content %}
+<form class="panel narrow" method="post"><h1>Welcome back</h1><label>Email</label><input type="email" name="email" required><label>Password</label><input type="password" name="password" required><br><br>
+<button class="btn">Login</button> <p class="cat">New here? <a href="{{ url_for('customer_register') }}"><u>Create account</u></a></p></form>{% endblock %}

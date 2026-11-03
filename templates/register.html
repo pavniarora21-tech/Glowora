@@ -1,0 +1,5 @@
+{% extends 'base.html' %}{% block title %}Register{% endblock %}{% block content %}
+<form class="panel narrow" method="post"><h1>Create account</h1><label>Full name</label><input name="full_name" required><label>Email</label><input type="email" name="email" required>
+<label>Phone</label><input name="phone" required><label>Password (min 8 characters)</label><input type="password" name="password" minlength="8" required>
+<label>Confirm password</label><input type="password" name="confirm_password" required><br><br><button class="btn">Register</button>
+<p class="cat">Already registered? <a href="{{ url_for('customer_login') }}"><u>Login</u></a></p></form>{% endblock %}

@@ -1,0 +1,3 @@
+{% extends 'base.html' %}{% block content %}
+<div class="row" style="margin:28px 0"><a class="btn sm" href="{{ url_for('admin_dashboard') }}">Dashboard</a><a class="btn sm ghost" href="{{ url_for('admin_orders') }}">Orders</a>
+<a class="btn sm ghost" href="{{ url_for('admin_add_product') }}">Add product</a><a class="btn sm ghost" href="{{ url_for('admin_logout') }}">Logout</a></div>{% block admin %}{% endblock %}{% endblock %}

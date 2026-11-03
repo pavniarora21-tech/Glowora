@@ -1,0 +1,6 @@
+{% extends 'base.html' %}{% block title %}My orders{% endblock %}{% block content %}
+<h1 style="margin-top:36px">My orders</h1>
+{% for o in orders %}<div class="panel"><div class="row" style="justify-content:space-between"><b>Order #{{ o.order['id'] }}</b><span>{{ o.order['status'] }}</span></div>
+<p class="cat">{{ o.order['order_date'] }}</p>{% for i in o['items'] %}<div class="row" style="justify-content:space-between"><span>{{ i['product_name'] }} × {{ i['quantity'] }}</span><span>₹{{ '%.0f'|format(i['subtotal']) }}</span></div>{% endfor %}
+<p class="total right">₹{{ '%.0f'|format(o.order['total']) }}</p></div>
+{% else %}<div class="panel"><p>No orders yet.</p><a class="btn" href="{{ url_for('shop') }}">Start shopping</a></div>{% endfor %}{% endblock %}

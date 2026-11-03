@@ -1,0 +1,2 @@
+<a class="card" href="{{ url_for('product_detail', product_id=p['id']) }}" data-cat="{{ p['category'] }}"><img src="{{ p['image'] }}" alt="{{ p['name'] }}" loading="lazy">
+<div class="b"><div class="cat">{{ p['category'] }}</div><h3>{{ p['name'] }}</h3><div class="price">₹{{ '%.0f'|format(p['price']) }}</div></div></a>

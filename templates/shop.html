@@ -1,0 +1,6 @@
+{% extends 'base.html' %}{% block title %}Shop{% endblock %}{% block content %}
+<h1 style="margin-top:36px">Shop</h1>
+<div class="chips"><button class="chip {{ '' if selected_category else 'on' }}" data-cat="">All</button>
+{% for c in categories %}<button class="chip {{ 'on' if selected_category==c['category'] }}" data-cat="{{ c['category'] }}">{{ c['category'] }}</button>{% endfor %}</div>
+<div class="grid">{% for p in products %}{% include '_card.html' %}{% endfor %}</div>
+<script src="{{ url_for('static', filename='js/shop.js') }}"></script>{% endblock %}

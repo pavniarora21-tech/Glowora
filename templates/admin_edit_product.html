@@ -1,0 +1,5 @@
+{% extends 'admin_base.html' %}{% block title %}Edit product{% endblock %}{% block admin %}
+<form class="panel narrow" method="post" enctype="multipart/form-data" style="margin:0 auto"><h1>Edit product</h1><img class="thumb" src="{{ product['image'] }}" alt="">
+<label>Name</label><input name="name" value="{{ product['name'] }}" required><label>Category</label><input name="category" value="{{ product['category'] }}" required>
+<label>Price (₹)</label><input name="price" type="number" step="0.01" min="1" value="{{ product['price'] }}" required><label>Description</label><textarea name="description" rows="3" required>{{ product['description'] }}</textarea>
+<label>New image (optional)</label><input type="file" name="image_file" accept=".jpg,.jpeg,.png,.webp"><br><br><button class="btn">Save changes</button></form>{% endblock %}

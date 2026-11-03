@@ -1,0 +1,3 @@
+{% extends 'base.html' %}{% block title %}Home{% endblock %}{% block content %}
+<section class="hero"><h1>Let your skin glow,<br>every single day.</h1><p>Gentle skincare, makeup and fragrance, picked for your daily ritual.</p><a class="btn" href="{{ url_for('shop') }}">Shop now</a></section>
+<h2>New arrivals</h2><div class="grid">{% for p in products %}{% include '_card.html' %}{% endfor %}</div>{% endblock %}

@@ -1,0 +1,4 @@
+{% extends 'base.html' %}{% block title %}Order placed{% endblock %}{% block content %}
+<div class="panel narrow" style="max-width:640px"><h1>Thank you, {{ order['full_name'] }}!</h1><p>Your order <b>#{{ order['id'] }}</b> is placed. Pay on delivery.</p>
+<table>{% for i in items %}<tr><td>{{ i['product_name'] }} × {{ i['quantity'] }}</td><td class="right">₹{{ '%.0f'|format(i['subtotal']) }}</td></tr>{% endfor %}</table>
+<p class="total right">Total: ₹{{ '%.0f'|format(order['total']) }}</p><p class="cat">Delivering to {{ order['address'] }}, {{ order['city'] }} - {{ order['pincode'] }}</p><a class="btn" href="{{ url_for('shop') }}">Keep shopping</a></div>{% endblock %}
