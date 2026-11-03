@@ -36,7 +36,7 @@ app.config["MAX_CONTENT_LENGTH"] = 5 * 1024 * 1024
 # ==========================================
 
 ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "admin")
-ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "Glowora@123")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "")
 
 
 # ==========================================
